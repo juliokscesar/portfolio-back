@@ -2,16 +2,26 @@ package com.portback.portfolioback.services;
 
 import com.portback.portfolioback.models.Project;
 import com.portback.portfolioback.repositories.ProjectRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class ProjectService {
-    private ProjectRepository repo;
+
+    @Autowired
+    ProjectRepository repo;
 
     public boolean projectExists(String id) {
-        return repo.findById(id).isPresent();
+        try{
+            return repo.findById(id).isPresent();
+        }catch (Exception e){
+            return false;
+        }
+
     }
 
     public List<Project> getAllProjects() {
@@ -33,7 +43,7 @@ public class ProjectService {
     }
 
     public Project insertProject(Project project) {
-        if (projectExists(project.getId()))
+        if (project.getId() != null && projectExists(project.getId()))
             throw new RuntimeException();
         return repo.save(project);
     }

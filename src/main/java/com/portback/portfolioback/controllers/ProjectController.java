@@ -16,6 +16,8 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/project")
 public class ProjectController {
+
+    @Autowired
     private ProjectService service;
 
     @GetMapping("/listall")
