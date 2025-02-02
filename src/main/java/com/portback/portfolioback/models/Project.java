@@ -11,9 +11,8 @@ public class Project {
     private String name;
     private String description;
 
-    public Project(String id, String name, String description) {
+    public Project(String name, String description) {
         super();
-        this.id = id;
         this.name = name;
         this.description = description;
     }
