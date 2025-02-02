@@ -8,25 +8,23 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PortfolioBackApplication implements CommandLineRunner {
+public class PortfolioBackApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PortfolioBackApplication.class, args);
 	}
 
-	private ProjectRepository projRepo;
-
-	@Override
-	public void run(String... args) throws Exception {
-		projRepo.deleteAll();
-
-		// save test
-		projRepo.save(new Project("Hello World", "First project"));
-		projRepo.save(new Project("Second" ,"Project"));
-
-		System.out.println("All projects found:");
-		for (Project proj : projRepo.findAll()) {
-			System.out.println(proj);
-		}
-	}
+//	@Override
+//	public void run(String... args) throws Exception {
+//		projRepo.deleteAll();
+//
+//		// save test
+//		projRepo.save(new Project("Hello World", "First project"));
+//		projRepo.save(new Project("Second" ,"Project"));
+//
+//		System.out.println("All projects found:");
+//		for (Project proj : projRepo.findAll()) {
+//			System.out.println(proj);
+//		}
+//	}
 }
