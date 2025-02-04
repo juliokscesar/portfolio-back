@@ -21,7 +21,6 @@ public class ProjectService {
         }catch (Exception e){
             return false;
         }
-
     }
 
     public List<Project> getAllProjects() {
@@ -33,7 +32,10 @@ public class ProjectService {
         if (optProj.isPresent()) {
             Project newProj = optProj.get();
             newProj.setName(project.getName());
-            newProj.setName(project.getDescription());
+            newProj.setDescription(project.getDescription());
+            newProj.setImagePath(project.getImagePath());
+            newProj.setRepositoryLink(project.getRepositoryLink());
+            newProj.setCompletionDate(project.getCompletionDate());
 
             repo.save(newProj);
             return repo.findById(newProj.getId()).get();
